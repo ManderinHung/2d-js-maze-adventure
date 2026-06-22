@@ -1,27 +1,17 @@
+# 2D Browser-Based Maze Game
 
-# README for Remix: Escape Sahur Island☠️🔥☠️ #
+An interactive, grid-based arcade game written in vanilla JavaScript. The player must navigate a maze to collect hidden keys while evading an autonomous enemy entity that uses real-time pathfinding logic.
 
-This is the README file for the Remix: Escape Sahur Island☠️🔥☠️ app. It's a great place to write
-down some notes about how your app works. For starters, here is some information
-about the other files in this folder.
+## Key Technical Features
 
-The files in this folder contain everything you need to run your app:
+* **State Management & Game Loops:** Implemented an asynchronous 50ms game loop handling concurrent calculations for player inputs, enemy movement, and real-time object tracking.
+* **Algorithmic Collision Detection:** Designed a custom Axis-Aligned Bounding Box (AABB) collision algorithm (`isTouchingWall`) with padding parameters to prevent characters from penetrating maze borders.
+* **Cached Data Structures:** Optimized rendering performance by mapping static UI elements to a cached local array (`wallData`), eliminating the overhead of redundant UI property queries during the runtime loop.
+* **Autonomous Enemy Logic:** Programmed real-time tracking behavior for the enemy asset using conditional coordinate updates to constantly shrink the distance vectors between the enemy and the player.
+* **Robust Event Handling:** Implemented full keyboard event listeners (`keydown` and `keyup`) via a dynamic map to ensure fluid, multi-directional player navigation.
 
-* `applab/applab.js` - This file contains the applab library, which has all the
-  javascript that applab uses to run your app.
+## How to Play
 
-* `applab/applab.css` - This file contains some default CSS styling for your app.
-
-* `index.html` - This is the html file that you designed in applab using the
-  Design tab. It contains all the buttons, text inputs, and other controls for
-  your app. Go here to add additional controls to your app.
-
-* `style.css` - This file defines the custom styling for each control in your
-  app that you specified under the Design tab. Go here to change the colors,
-  positions, dimensions, and other properties of your app's controls.
-
-* `code.js` - This file has all the code you wrote for your app. Go here to add
-  new behavior to your app.
-
-* `assets` - This is a directory with all the asset files (pictures and sounds)
-  that you uploaded in applab.
+1. Use **WASD** or the **Arrow Keys** to navigate through the maze.
+2. Locate and collect all three colored keys (Red, Green, and Blue) to achieve a winning score of 1500 points.
+3. Evade the tracking enemy. If caught, you lose one of your three lives and receive temporary invincibility frames to regroup.
